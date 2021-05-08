@@ -1,18 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {PintserviceService} from './Services/pintservice.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  draught: any [];
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Home', url: '/folder', icon: "home" },
+    { title: 'Draught', url: '/draught', icon: 'beer' },
+    { title: 'Soft Drinks', url: '/folder/softdrinks', icon: 'pint' },
+    { title: 'Wines & Spirits', url: '/folder/spirits', icon: 'wine' },
+    { title: 'Snacks', url: '/folder/snack', icon: 'restaurant' },
+    { title: 'Hot Drinks', url: '/folder/hotdrink', icon: 'cafe' },
+    { title: 'Cart', url: '/folder/cart', icon: 'cart'},
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  constructor(private service:PintserviceService) {}
+
+  ngOnInit()
+  {
+    this.service.GetPintData().subscribe((data)=>{
+      this.draught = data.draught;
+      console.log(this.draught);
+    });
+  }
 }
