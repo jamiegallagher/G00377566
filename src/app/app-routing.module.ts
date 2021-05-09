@@ -14,6 +14,14 @@ const routes: Routes = [
   {
     path: 'draught',
     loadChildren: () => import('./draught/draught.module').then( m => m.DraughtPageModule)
+  },
+  {
+    path: 'softdrinks',
+    loadChildren: () => import('./softdrinks/softdrinks.module').then( m => m.SoftdrinksPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   }
 ];
 
