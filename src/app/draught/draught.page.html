@@ -8,8 +8,11 @@
 </ion-header>
 
 <ion-content>
-  <ol>
-    <li *ngFor="let draughts of draught"{{draught.name}}></li>
-  </ol>
-
+  <ion-card *ngFor="let draughts of draughts">
+    <img src="{{draughts.Poster}}">
+    <ion-card-header>
+      <ion-card-subtitle>{{draughts.name}}</ion-card-subtitle>
+      <ion-card-title>{{draughts.price}}</ion-card-title>
+    </ion-card-header>
+    </ion-card>
 </ion-content>

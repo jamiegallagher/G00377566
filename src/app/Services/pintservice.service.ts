@@ -10,6 +10,6 @@ export class PintserviceService {
   constructor(private http:HttpClient) { }
 
   GetPintData():Observable<any>{
-    return this.http.get("https://www.jsonblob.com/api/jsonblob/8877ad0a-b03d-11eb-83dc-21fe562972d5");
+    return this.http.get("https://www.jsonblob.com/api/jsonblob/e80987f9-b1a9-11eb-804a-45321f7eae18");
   }
 }

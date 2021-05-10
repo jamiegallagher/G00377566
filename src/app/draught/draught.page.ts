@@ -11,7 +11,7 @@ draughts:any = [];
 
   ngOnInit() {
     this.pintservice.GetPintData().subscribe((data)=>{
-      this.draughts = data.draught;
+      this.draughts = data.draughts;
       console.log(this.draughts);
     })
   }
