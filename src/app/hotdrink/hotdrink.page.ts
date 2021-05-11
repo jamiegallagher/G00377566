@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PintserviceService} from '../Services/pintservice.service';
 
 @Component({
   selector: 'app-hotdrink',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hotdrink.page.scss'],
 })
 export class HotdrinkPage implements OnInit {
+hotdrinks:any = [];
+  constructor(private hotdrink:PintserviceService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.hotdrink.GetHotDrinkData().subscribe((data)=>{
+      this.hotdrinks = data.hotdrinks;
+      console.log(this.hotdrinks);
+    })
   }
 
 }

@@ -12,13 +12,13 @@
     <img length="200" width="200" src="{{cans.Poster}}">
     <ion-card-header>
       <ion-card-subtitle>{{cans.name}}</ion-card-subtitle>
+      <ion-card-subtitle>Price:</ion-card-subtitle>
       <ion-card-title>{{cans.price}}</ion-card-title>
     </ion-card-header>
     <ion-input type="number" min="0" value="0"></ion-input>
     <ion-button (click)="updateCart()">Add to Cart</ion-button>
     </ion-card>
-
-    <h4 class="ion-text-center">Longnecks</h4>
+    
     <ion-card *ngFor="let longnecks of longnecks">
       <img length="100" width="130" src="{{longnecks.Poster}}">
       <ion-card-header>

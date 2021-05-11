@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{LongnecksService} from '../Service/longnecks.service';
+import{PintserviceService} from '../Services/pintservice.service'
 @Component({
   selector: 'app-longnecks',
   templateUrl: './longnecks.page.html',
@@ -8,7 +8,7 @@ import{LongnecksService} from '../Service/longnecks.service';
 export class LongnecksPage implements OnInit {
 cans: any = [];
 longnecks: any = [];
-  constructor(private longneckservice:LongnecksService) { }
+  constructor(private longneckservice:PintserviceService) { }
 
   ngOnInit() 
   {

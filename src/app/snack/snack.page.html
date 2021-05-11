@@ -1,9 +1,21 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>snack</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Snacks</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-content>
+    <ion-card *ngFor="let snacks of snacks">
+      <ion-card-header>
+        <ion-card-subtitle>{{snacks.name}}</ion-card-subtitle>
+        <ion-card-subtitle>Price:</ion-card-subtitle>
+        <ion-card-title>{{snacks.price}}</ion-card-title>
+      </ion-card-header>
+      <ion-input type="number" min="0" value="0"></ion-input>
+      <ion-button (click)="updateCart()">Add to Cart</ion-button>
+      </ion-card>
 </ion-content>
