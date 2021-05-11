@@ -8,5 +8,13 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngFor="let softdrinks of softdrinks">
+    <img length="120" width="100" src="{{softdrinks.Poster}}">
+    <ion-card-header>
+      <ion-card-subtitle>{{softdrinks.name}}</ion-card-subtitle>
+      <ion-card-title>{{softdrinks.price}}</ion-card-title>
+    </ion-card-header>
+    <ion-input type="number" min="0" value="0"></ion-input>
+    <ion-button (click)="updateCart()">Add to Cart</ion-button>
+    </ion-card>
 </ion-content>

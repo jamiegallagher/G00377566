@@ -22,6 +22,26 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
+  },
+  {
+    path: 'longnecks',
+    loadChildren: () => import('./longnecks/longnecks.module').then( m => m.LongnecksPageModule)
+  },
+  {
+    path: 'spirits',
+    loadChildren: () => import('./spirits/spirits.module').then( m => m.SpiritsPageModule)
+  },
+  {
+    path: 'snack',
+    loadChildren: () => import('./snack/snack.module').then( m => m.SnackPageModule)
+  },
+  {
+    path: 'hotdrink',
+    loadChildren: () => import('./hotdrink/hotdrink.module').then( m => m.HotdrinkPageModule)
   }
 ];
 
