@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -8,14 +8,25 @@
 </ion-header>
 
 <ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #cart>
+      <div class="cart-length">{{cartItemCount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
   <ion-card *ngFor="let draughts of draughts">
-    <img length="200" width="200" src="{{draughts.Poster}}">
     <ion-card-header>
       <ion-card-subtitle>{{draughts.name}}</ion-card-subtitle>
       <ion-card-subtitle>Price:</ion-card-subtitle>
       <ion-card-title>{{draughts.price}}0</ion-card-title>
     </ion-card-header>
-    <ion-input type="number" min="0" value="0"></ion-input>
-    <ion-button (click)="updateCart()">Add to Cart</ion-button>
+    <ion-card-content>
+    <ion-col size="4" class="ion-text-right">
+    <ion-button fill="clear" (click)="addToCart(draughts)">
+    <ion-icon color="secondary" name="add"></ion-icon>
+    </ion-button>
+    </ion-col>
+  </ion-card-content>
     </ion-card>
 </ion-content>

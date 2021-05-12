@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +29,140 @@ export class PintserviceService {
 
   GetSoftDrinkData():Observable<any>{
     return this.http.get("https://www.jsonblob.com/api/jsonblob/fc22b07e-b258-11eb-8c49-7995f113563b");
+  }
+
+  private cart = [];
+  private cartItemCount = new BehaviorSubject(0);
+
+  getHotDrinkProducts() {
+    return this.GetHotDrinkData;
+  }
+
+  getSoftDrinkProducts()
+  {
+    return this.GetSoftDrinkData;
+  }
+
+  getSnackProducts()
+  {
+    return this.GetSnackData;
+  }
+
+  getLongneckProducts()
+  {
+    return this.GetLongneckData;
+  }
+
+  getPintProducts()
+  {
+    return this.GetPintData;
+  }
+
+  getCart(){
+    return this.cart;
+  }
+
+  getCartItemCount()
+  {
+    return this.cartItemCount;
+  }
+
+  addPint(GetPintData)
+  {
+    let added = false;
+    for(let draughts of this.cart) {
+      if(draughts.name == GetPintData.name) {
+        draughts.amount += 1;
+        added = true;
+        break;
+      }
+    }
+    if(!added) {
+      this.cart.push(GetPintData);
+    }
+    this.cartItemCount.next(this.cartItemCount.value + 1);
+  }
+
+  addSnack(GetSnackData)
+  {
+
+  }
+
+  addLongneck(GetLongneckData)
+  {
+
+  }
+
+  addSoftDrink(GetSoftDrinkData)
+  {
+
+  }
+
+  addHotDrink(GetHotDrinkData)
+  {
+
+  }
+
+  decreasePint(GetPintData)
+  {
+    for(let [index, draughts] of this.cart.entries()) {
+      if(draughts.name == GetPintData.name) {
+        draughts.amount -=1;
+        if(draughts.amount == 0) {
+          this.cart.splice(index, 1);
+        }
+      }
+    }
+    this.cartItemCount.next(this.cartItemCount.value - 1);
+  }
+
+  decreaseLongneck(GetLongneckData)
+  {
+
+  }
+
+  decreaseSnack(GetSnackData)
+  {
+
+  }
+
+  decreaseSoftDrink(GetSoftDrinkData)
+  {
+
+  }
+
+  decreaseHotDrink(GetHotDrinkData)
+  {
+
+  }
+
+  removePint(GetPintData)
+  {
+    for(let [index, draughts] of this.cart.entries()) {
+      if(draughts.name == GetPintData.name) {
+        this.cartItemCount.next(this.cartItemCount.value - draughts.amount);
+        this.cart.splice(index, 1);
+      }
+    }
+  }
+
+  removeLongneck( GetLongneckData)
+  {
+
+  }
+
+  removeSnack (GetSnackData)
+  {
+
+  }
+
+  removeSoftDrink(GetSoftDrinkData)
+  {
+
+  }
+
+  removeHotDrink(GetHotDrinkData)
+  {
+
   }
 }

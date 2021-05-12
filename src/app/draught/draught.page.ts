@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {PintserviceService} from '../Services/pintservice.service';
-import {Storage} from '@ionic/storage';
-import {NavController} from '@ionic/angular';
+//import {Storage} from '@ionic/storage';
+import { ModalController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
+import { CartPage } from '../cart/cart.page';
 @Component({
   selector: 'app-draught',
   templateUrl: './draught.page.html',
@@ -9,23 +11,34 @@ import {NavController} from '@ionic/angular';
 })
 export class DraughtPage implements OnInit {
 draughts:any = [];
-quantity2:any;
-  constructor(private pintservice: PintserviceService, private storage:Storage, private NavCtrl: NavController) { }
+cart:any = [];
+products:any = [];
+cartItemCount: BehaviorSubject<number>;
+  constructor(private pintservice: PintserviceService, private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.pintservice.GetPintData().subscribe((data)=>{
       this.draughts = data.draughts;
       console.log(this.draughts);
     })
+
+      this.products = this.pintservice.getPintProducts();
+
+    this.cart = this.pintservice.getCart();
+    this.cartItemCount = this.pintservice.getCartItemCount();
   }
 
-  //UpdateCart()
- // {
-   // this.storage.set('quantity',this.quantity)
-   // .then(()=>{
-   //   this.NavCtrl.navigateBack('/cart');
-  //  })
-   // .catch()
- // }
+  addToCart(GetPintData) {
+    this.pintservice.addPint(GetPintData);
+  }
 
-}
+  async openCart()
+  {
+    let modal = await this.modalCtrl.create({
+      component: CartPage,
+      cssClass: 'cart-modal'
+    });
+    modal.present();
+  }
+
+  }
