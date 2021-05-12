@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {PintserviceService} from '../Services/pintservice.service';
-//import {Storage} from '@ionic/storage';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { CartPage } from '../cart/cart.page';

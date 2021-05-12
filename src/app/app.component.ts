@@ -12,8 +12,7 @@ export class AppComponent{
     { title: 'Longnecks & Cans', url: '/longnecks', icon: 'water'},
     { title: 'Wines & Spirits', url: '/spirits', icon: 'wine' },
     { title: 'Snacks', url: '/snack', icon: 'restaurant' },
-    { title: 'Hot Drinks', url: '/hotdrink', icon: 'cafe' },
-    { title: 'Cart', url: '/cart', icon: 'cart'},
+    { title: 'Hot Drinks', url: '/hotdrink', icon: 'cafe' }
   ];
   constructor() {}
 }

@@ -1,5 +1,5 @@
-
 <ion-content fullscreen>
+
   <div class="ion-text-end">
     <ion-button (click)="close()" fill="clear" color="dark">
       <ion-icon name="close" slot="start"></ion-icon>
@@ -7,6 +7,7 @@
   </div>
 
   <div class="ion-padding">
+
     <ion-list>
       <ion-item *ngFor="let draughts of cart" class="ion-text-wrap">
         <ion-grid>
@@ -17,7 +18,7 @@
               </ion-button>
             </ion-col>
 
-            <ion-col size="1" class="ion-align-self-center">
+            <ion-col size="1" class="ion-align-self-center" offset="1">
               {{draughts.amount}}
             </ion-col>
 
@@ -26,7 +27,7 @@
                 <ion-icon name="add-circle" slot="icon-only"></ion-icon>
               </ion-button>
             </ion-col>
-            <ion-col size="2" offset="5">
+            <ion-col size="2" offset="3">
               <ion-button color="medium" fill="clear" (click)="removeDraughtItem(draughts)">
                 <ion-icon name="close-circle" slot="icon-only"></ion-icon>
               </ion-button>
@@ -36,8 +37,8 @@
             <ion-col size="9">
               <b>{{draughts.name}}</b>
             </ion-col>
-            <ion-col size="3" class="ion-text-end">
-              {{draughts.amount * draughts.price | currency:'Euro'}}
+            <ion-col size="4" class="ion-text-end">
+             {{draughts.amount * draughts.price | currency:'€'}}
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -49,7 +50,7 @@
               Total:
             </ion-col>
             <ion-col size="3" class="ion-text-end">
-              {{getTotal() | currency:'Euro'}}
+              {{getTotal() | currency:'€'}}
             </ion-col>
           </ion-row>
         </ion-grid>

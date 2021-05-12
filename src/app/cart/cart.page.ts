@@ -40,3 +40,4 @@ export class CartPage implements OnInit {
     this.modalCtrl.dismiss();
   }
 }
+
