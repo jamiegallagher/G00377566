@@ -6,6 +6,8 @@ import {BehaviorSubject, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class PintserviceService {
+  price: any;
+  amount: any;
 
   constructor(private http:HttpClient) { }
 

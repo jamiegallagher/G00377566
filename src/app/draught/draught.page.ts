@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {PintserviceService} from '../Services/pintservice.service';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
@@ -13,6 +13,7 @@ draughts:any = [];
 cart:any = [];
 products:any = [];
 cartItemCount: BehaviorSubject<number>;
+
   constructor(private pintservice: PintserviceService, private modalCtrl: ModalController) { }
 
   ngOnInit() {
