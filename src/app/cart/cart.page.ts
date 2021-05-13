@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { CheckoutPage } from '../checkout/checkout.page';
 import {PintserviceService} from '../Services/pintservice.service';
 import { TablenumbersPage } from '../tablenumbers/tablenumbers.page';
+import {Storage} from '@ionic/storage';
+import { CheckoutPage } from '../checkout/checkout.page';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.page.html',
@@ -11,10 +12,18 @@ import { TablenumbersPage } from '../tablenumbers/tablenumbers.page';
 export class CartPage implements OnInit {
 
   cart: PintserviceService[] = [];
-  constructor(private pintservice: PintserviceService, private modalCtrl: ModalController) {}
+  myTable: string;
+  constructor(private pintservice: PintserviceService, private modalCtrl: ModalController,
+    private storage: Storage) {}
 
   ngOnInit() {
     this.cart = this.pintservice.getCart();
+
+    this.storage.get("myTable")
+    .then((data) => {
+      this.myTable = data;
+    })
+    .catch ();
   }
 
   decreaseDraughtItem(draughts)
@@ -42,11 +51,11 @@ export class CartPage implements OnInit {
     this.modalCtrl.dismiss();
   }
 
-  async checktable()
+  async checkout()
   {
     let modal = await this.modalCtrl.create({
-      component: TablenumbersPage,
-      cssClass: 'cart-modal'
+      component: CheckoutPage,
+      cssClass: 'checkout-modal'
     });
     modal.present();
   }

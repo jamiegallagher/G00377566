@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
-import { CartPage } from '../cart/cart.page';
 import {PintserviceService} from '../Services/pintservice.service';
+import { TablenumbersPage } from '../tablenumbers/tablenumbers.page';
 
 @Component({
   selector: 'app-softdrinks',
@@ -34,7 +34,7 @@ cartItemCount: BehaviorSubject<number>;
     async openCart()
   {
     let modal = await this.modalCtrl.create({
-      component: CartPage,
+      component: TablenumbersPage,
       cssClass: 'cart-modal'
     });
     modal.present();

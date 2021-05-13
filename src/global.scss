@@ -26,7 +26,13 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 .cart-modal {
-    --height: 50%;
-    --border-radius: 10px;
+    --height: 80%;
+    --border-radius: 20px;
+    padding: 25px;
+}
+
+.checkout-modal {
+    --height: 80%;
+    --border-radius: 20px;
     padding: 25px;
 }
