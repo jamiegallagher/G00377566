@@ -1,31 +1,46 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Cans</ion-title>
+    <ion-title>PubHub</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #cart>
+      <div class="cart-length">{{cartItemCount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
   <ion-card *ngFor="let cans of cans">
-    <img length="200" width="200" src="{{cans.Poster}}">
     <ion-card-header>
       <ion-card-subtitle>{{cans.name}}</ion-card-subtitle>
       <ion-card-subtitle>Price:</ion-card-subtitle>
-      <ion-card-title>{{cans.price}}</ion-card-title>
+      <ion-card-title>{{cans.currency}}{{cans.price}}</ion-card-title>
     </ion-card-header>
-    <ion-input type="number" min="0" value="0"></ion-input>
-    <ion-button (click)="updateCart()">Add to Cart</ion-button>
+    <ion-card-content>
+      <ion-col size="4" class="ion-text-right">
+      <ion-button fill="clear" (click)="addToCart(cans)">
+      <ion-icon color="secondary" name="add"></ion-icon>
+      </ion-button>
+      </ion-col>
+    </ion-card-content>
     </ion-card>
     
     <ion-card *ngFor="let longnecks of longnecks">
-      <img length="100" width="130" src="{{longnecks.Poster}}">
       <ion-card-header>
         <ion-card-subtitle>{{longnecks.name}}</ion-card-subtitle>
-        <ion-card-title>{{longnecks.price}}</ion-card-title>
+        <ion-card-title>{{longnecks.currency}}{{longnecks.price}}</ion-card-title>
       </ion-card-header>
-      <ion-input type="number" min="0" value="0"></ion-input>
-      <ion-button (click)="updateCart()">Add to Cart</ion-button>
+      <ion-card-content>
+        <ion-col size="4" class="ion-text-right">
+        <ion-button fill="clear" (click)="addToCart(longnecks)">
+        <ion-icon color="secondary" name="add"></ion-icon>
+        </ion-button>
+        </ion-col>
+      </ion-card-content>
       </ion-card>
 </ion-content>

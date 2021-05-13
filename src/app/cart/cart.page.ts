@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { CheckoutPage } from '../checkout/checkout.page';
 import {PintserviceService} from '../Services/pintservice.service';
+import { TablenumbersPage } from '../tablenumbers/tablenumbers.page';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.page.html',
@@ -38,6 +40,15 @@ export class CartPage implements OnInit {
   close()
   {
     this.modalCtrl.dismiss();
+  }
+
+  async checktable()
+  {
+    let modal = await this.modalCtrl.create({
+      component: TablenumbersPage,
+      cssClass: 'cart-modal'
+    });
+    modal.present();
   }
 }
 

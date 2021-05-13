@@ -1,12 +1,33 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Wines & Spirits</ion-title>
+    <ion-title>PubHub</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openCart()" #cart>
+      <div class="cart-length">{{cartItemCount | async }}</div>
+      <ion-icon name="cart" class="cart-icon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-card *ngFor="let spirits of spirits">
+    <ion-card-header>
+      <ion-card-subtitle>{{spirits.name}}</ion-card-subtitle>
+      <ion-card-subtitle>Price:</ion-card-subtitle>
+      <ion-card-title>{{spirits.currency}}{{spirits.price}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-col size="4" class="ion-text-right">
+      <ion-button fill="clear" (click)="addToCart(spirits)">
+      <ion-icon color="secondary" name="add"></ion-icon>
+      </ion-button>
+      </ion-col>
+    </ion-card-content>
+    </ion-card>
 
 </ion-content>

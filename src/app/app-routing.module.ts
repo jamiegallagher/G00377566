@@ -38,6 +38,14 @@ const routes: Routes = [
   {
     path: 'hotdrink',
     loadChildren: () => import('./hotdrink/hotdrink.module').then( m => m.HotdrinkPageModule)
+  },
+  {
+    path: 'checkout',
+    loadChildren: () => import('./checkout/checkout.module').then( m => m.CheckoutPageModule)
+  },
+  {
+    path: 'tablenumbers',
+    loadChildren: () => import('./tablenumbers/tablenumbers.module').then( m => m.TablenumbersPageModule)
   }
 ];
 

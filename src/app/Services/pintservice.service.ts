@@ -32,6 +32,9 @@ export class PintserviceService {
   GetSoftDrinkData():Observable<any>{
     return this.http.get("https://www.jsonblob.com/api/jsonblob/fc22b07e-b258-11eb-8c49-7995f113563b");
   }
+  GetSpiritsData():Observable<any>{
+    return this.http.get("https://www.jsonblob.com/api/jsonblob/7c38c05c-b3f7-11eb-8fb2-f1b243daa9e3");
+  }
 
   private cart = [];
   private cartItemCount = new BehaviorSubject(0);
@@ -60,6 +63,11 @@ export class PintserviceService {
     return this.GetPintData;
   }
 
+  getSpiritsProducts()
+  {
+    return this.GetSpiritsData;
+  }
+
   getCart(){
     return this.cart;
   }
@@ -85,26 +93,6 @@ export class PintserviceService {
     this.cartItemCount.next(this.cartItemCount.value + 1);
   }
 
-  addSnack(GetSnackData)
-  {
-
-  }
-
-  addLongneck(GetLongneckData)
-  {
-
-  }
-
-  addSoftDrink(GetSoftDrinkData)
-  {
-
-  }
-
-  addHotDrink(GetHotDrinkData)
-  {
-
-  }
-
   decreasePint(GetPintData)
   {
     for(let [index, draughts] of this.cart.entries()) {
@@ -118,26 +106,6 @@ export class PintserviceService {
     this.cartItemCount.next(this.cartItemCount.value - 1);
   }
 
-  decreaseLongneck(GetLongneckData)
-  {
-
-  }
-
-  decreaseSnack(GetSnackData)
-  {
-
-  }
-
-  decreaseSoftDrink(GetSoftDrinkData)
-  {
-
-  }
-
-  decreaseHotDrink(GetHotDrinkData)
-  {
-
-  }
-
   removePint(GetPintData)
   {
     for(let [index, draughts] of this.cart.entries()) {
@@ -146,25 +114,5 @@ export class PintserviceService {
         this.cart.splice(index, 1);
       }
     }
-  }
-
-  removeLongneck( GetLongneckData)
-  {
-
-  }
-
-  removeSnack (GetSnackData)
-  {
-
-  }
-
-  removeSoftDrink(GetSoftDrinkData)
-  {
-
-  }
-
-  removeHotDrink(GetHotDrinkData)
-  {
-
   }
 }
