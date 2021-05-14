@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import {PintserviceService} from '../Services/pintservice.service';
-import { TablenumbersPage } from '../tablenumbers/tablenumbers.page';
 import {Storage} from '@ionic/storage';
 import { CheckoutPage } from '../checkout/checkout.page';
 @Component({
@@ -15,6 +14,9 @@ export class CartPage implements OnInit {
   myTable: string;
   constructor(private pintservice: PintserviceService, private modalCtrl: ModalController,
     private storage: Storage) {}
+
+
+   
 
   ngOnInit() {
     this.cart = this.pintservice.getCart();

@@ -8,6 +8,7 @@ import {PintserviceService} from '../Services/pintservice.service';
   styleUrls: ['./checkout.page.scss'],
 })
 export class CheckoutPage implements OnInit {
+
   checkout: PintserviceService[] = [];
   constructor(private modalCtrl: ModalController, private pintservice: PintserviceService) { }
 
