@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'tablenumbers',
     loadChildren: () => import('./tablenumbers/tablenumbers.module').then( m => m.TablenumbersPageModule)
+  },
+  {
+    path: 'localmap',
+    loadChildren: () => import('./localmap/localmap.module').then( m => m.LocalmapPageModule)
   }
 ];
 
